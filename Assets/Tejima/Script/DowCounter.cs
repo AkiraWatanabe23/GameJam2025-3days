@@ -14,11 +14,12 @@ enum Week
 
 public class DowCounter : MonoBehaviour
 {
-    [SerializeField] Text text;
     [SerializeField] Animator animator;
     Week week;
+    [SerializeField]Sprite[] sprites = new Sprite[7];
     string readDay;
     bool isStop = false;
+    int spriteNum = 0;
     float time = 0.0f;
     float changeTime = 0.0f;
     void Start()
@@ -29,7 +30,8 @@ public class DowCounter : MonoBehaviour
 
     private void Update()
     {
-        text.text = $"{week}“Ë“üI";
+        Debug.Log ($"{week}“Ë“üI");
+        sprites.GetValue(spriteNum);
         if (isStop){ changeTime += Time.deltaTime; }
         else { time += Time.deltaTime; }
 
@@ -48,8 +50,16 @@ public class DowCounter : MonoBehaviour
     }
     public void NextDay()
     {
-        if (week == Week.“ú—j“ú) { week = Week.Œ—j“ú; }
-        else { week++; }
+        if (week == Week.“ú—j“ú) 
+        {
+            week = Week.Œ—j“ú;
+            spriteNum = 0;
+        }
+        else 
+        {
+            week++;
+            spriteNum++;
+        }
         animator.SetBool("Change", true);
         isStop = true;
         readDay = $"{week}";
