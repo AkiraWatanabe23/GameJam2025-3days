@@ -9,5 +9,7 @@ public class TitleScene : MonoBehaviour
     private void Start()
     {
         _gameStartButton.onClick.AddListener(() => SceneLoader.FadeLoad(SceneName.InGame));
+
+        Fade.Instance.StartFadeIn().OnComplete(() => AudioManager.Instance.PlayBGM(BGMType.Title));
     }
 }
