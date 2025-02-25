@@ -913,7 +913,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u6708\u66DC\u65E5"
+  m_Text: "\u3007\u66DC\u65E5"
 --- !u!222 &880675577
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1571,6 +1571,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _toTitleButton: {fileID: 1917723637}
   _restartButton: {fileID: 1477622255}
+  _resultTimeText: {fileID: 763108990}
+  _rankingFirstText: {fileID: 925129515}
+  _rankingSecondText: {fileID: 1078742360}
+  _rankingThirdText: {fileID: 710052843}
 --- !u!1 &1477622253
 GameObject:
   m_ObjectHideFlags: 0
