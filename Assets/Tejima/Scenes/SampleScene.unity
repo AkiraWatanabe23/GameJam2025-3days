@@ -481,6 +481,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: NextDayPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 4783899970609395603, guid: a1d63c6f09731c6488ab38be21e3ecd3, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4783899970609395603, guid: a1d63c6f09731c6488ab38be21e3ecd3, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4783899970609395603, guid: a1d63c6f09731c6488ab38be21e3ecd3, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4783899970609395603, guid: a1d63c6f09731c6488ab38be21e3ecd3, type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4783899970609395603, guid: a1d63c6f09731c6488ab38be21e3ecd3, type: 3}
+      propertyPath: sprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4783899970609395603, guid: a1d63c6f09731c6488ab38be21e3ecd3, type: 3}
+      propertyPath: sprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4783899970609395603, guid: a1d63c6f09731c6488ab38be21e3ecd3, type: 3}
+      propertyPath: sprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 9018803588487110602, guid: a1d63c6f09731c6488ab38be21e3ecd3, type: 3}
       propertyPath: m_Type
       value: 1

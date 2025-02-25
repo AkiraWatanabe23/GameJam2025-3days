@@ -44,7 +44,7 @@ public class DowCounter : MonoBehaviour
             time = 0;
         }
 
-        if (changeTime >= 48)
+        if (changeTime >= 1)
         {
             animator.SetBool("Change", false);
             isStop = false;
