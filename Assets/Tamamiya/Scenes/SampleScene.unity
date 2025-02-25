@@ -159,9 +159,13 @@ MonoBehaviour:
   - 0
   - 5
   index: 1
-  _speed: 5
+  _speed: 4
   _camera: {fileID: 1800511525}
   _offset: {x: 0, y: 0, z: 0}
+  isMove: 0
+  timer: 0
+  currentTime: 0
+  addSpeed: 0.5
 --- !u!136 &337585556
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -6,21 +6,19 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float[] pos = new float[3] { -5, 0, 5 }; //移動できる場所
     [SerializeField] private int index = 1;
-    [SerializeField] private float _speed;
-    [SerializeField] private Transform _camera;
-    [SerializeField] private Vector3 _offset;
-
+    [SerializeField] private bool isMove = true;
     void Start()
     {
+        isMove = true;
         this.transform.position = new Vector3(pos[index], this.transform.position.y);
-        _offset = _camera.position - this.transform.position;
     }
 
     void Update()
     {
-        Move();
-        _camera.transform.position = new Vector3(
-            0, this.transform.position.y + _offset.y, this.transform.position.z + _offset.z);
+        if (isMove)
+        {
+            Move();
+        }
     }
 
     /// <summary>
@@ -46,8 +44,19 @@ public class PlayerController : MonoBehaviour
             index = 0;
         }
 
-        this.transform.position = new Vector3(pos[index], this.transform.position.y,
-            this.transform.position.z + _speed * Time.deltaTime);
-        GameManager.Instance.AddDistance(_speed * Time.deltaTime);
+        this.transform.position = new Vector3(pos[index], this.transform.position.y);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            isMove = false;
+        }
+
+        if (collision.gameObject.CompareTag("Monday"))
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 }
