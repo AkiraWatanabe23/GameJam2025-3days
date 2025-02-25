@@ -38,13 +38,13 @@ public class DowCounter : MonoBehaviour
         if (isStop){ changeTime += Time.deltaTime; }
         else { time += Time.deltaTime; }
 
-        if (time >= 0.8)
+        if (time >= 48)
         {
             NextDay();
             time = 0;
         }
 
-        if (changeTime >= 0.8)
+        if (changeTime >= 48)
         {
             animator.SetBool("Change", false);
             isStop = false;
