@@ -19,6 +19,7 @@ public class DowCounter : MonoBehaviour
     Week week;
     string readDay;
     bool isStop = false;
+    float time = 0.0f;
     float changeTime = 0.0f;
     void Start()
     {
@@ -30,8 +31,15 @@ public class DowCounter : MonoBehaviour
     {
         text.text = $"{week}“Ë“üI";
         if (isStop){ changeTime += Time.deltaTime; }
+        else { time += Time.deltaTime; }
 
-        if (changeTime >= 2)
+        if (time >= 0.8)
+        {
+            NextDay();
+            time = 0;
+        }
+
+        if (changeTime >= 0.8)
         {
             animator.SetBool("Change", false);
             isStop = false;
