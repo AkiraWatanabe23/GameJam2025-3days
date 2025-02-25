@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] public int hp = 3;
     [SerializeField] private float[] pos = new float[3] { -5, 0, 5 }; //移動できる場所
     [SerializeField] private int index = 1;
     [SerializeField] private float jumpForce = 5f;
@@ -20,6 +21,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(hp <= 0)
+        {
+            GameManager.Instance.GameOver();
+        }
         if (isMove)
         {
             Move();
@@ -71,7 +76,14 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            isMove = false;
+            if(hp > 0)
+            {
+                hp--;
+            }
+            if(hp == 0)
+            {
+                isMove = false;
+            }
         }
 
         if (collision.gameObject.CompareTag("Monday"))
