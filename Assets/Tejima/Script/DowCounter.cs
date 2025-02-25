@@ -17,6 +17,7 @@ public class DowCounter : MonoBehaviour
     [SerializeField] Animator animator;
     Week week;
     [SerializeField]Sprite[] sprites = new Sprite[7];
+    Image image;
     string readDay;
     bool isStop = false;
     int spriteNum = 0;
@@ -24,6 +25,7 @@ public class DowCounter : MonoBehaviour
     float changeTime = 0.0f;
     void Start()
     {
+        image = GameObject.FindObjectOfType<Image>();
         week = Week.Œ—j“ú;
         readDay = $"{week}";
     }
@@ -32,6 +34,7 @@ public class DowCounter : MonoBehaviour
     {
         Debug.Log ($"{week}“Ë“üI:{spriteNum}");
         sprites.GetValue(spriteNum);
+        image.sprite = sprites[spriteNum];
         if (isStop){ changeTime += Time.deltaTime; }
         else { time += Time.deltaTime; }
 
