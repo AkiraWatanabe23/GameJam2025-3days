@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/MasterScenes/TitleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/MasterScenes/InGameScene.unity
+    path: Assets/MasterScenes/GameScene.unity
     guid: a4301ab3c695fc641b56110aacc45517
   - enabled: 1
     path: Assets/MasterScenes/ResultScene.unity

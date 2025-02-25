@@ -20,7 +20,7 @@ namespace Constants
         public static readonly Dictionary<SceneName, string> Scenes = new()
         {
             { SceneName.Title, "TitleScene" },
-            { SceneName.InGame, "InGameScene" },
+            { SceneName.InGame, "GameScene" },
             { SceneName.Result, "ResultScene" },
         };
     }
