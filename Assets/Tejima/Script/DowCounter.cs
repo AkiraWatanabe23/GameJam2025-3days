@@ -30,7 +30,7 @@ public class DowCounter : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log ($"{week}“Ë“üI");
+        Debug.Log ($"{week}“Ë“üI:{spriteNum}");
         sprites.GetValue(spriteNum);
         if (isStop){ changeTime += Time.deltaTime; }
         else { time += Time.deltaTime; }
