@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] DowCounter DowCounter;
     private static float Timer = 0;
     private static float Distance = 0;
+    public static string WeekDay;
     public static GameManager Instance;
 
     private void Awake()
@@ -27,7 +29,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Timer = Time.deltaTime;
+        if(SceneManager.GetActiveScene().name == "GameScene")
+        {
+            Timer += Time.deltaTime;
+        }
     }
 
     //逃げた距離の追加
@@ -51,6 +56,6 @@ public class GameManager : MonoBehaviour
     //ゲームオーバー時の処理
     public void GameOver()
     {
-
+        WeekDay = DowCounter.Result();
     }
 }
