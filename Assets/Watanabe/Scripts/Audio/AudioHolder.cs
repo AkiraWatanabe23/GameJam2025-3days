@@ -50,7 +50,7 @@ public enum BGMType
 public enum SEType
 {
     None,
-    TitleClick,
+    Click,
     FadeToGame,
     HorizontalMove,
     Jump,

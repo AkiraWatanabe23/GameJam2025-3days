@@ -1665,6 +1665,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameStartButton: {fileID: 1955386422}
+  _playSEButtons:
+  - {fileID: 606981788}
+  - {fileID: 1996799072}
+  - {fileID: 1711547837}
+  - {fileID: 2022483948}
 --- !u!1 &1870036485
 GameObject:
   m_ObjectHideFlags: 0

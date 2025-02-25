@@ -20,13 +20,21 @@ public class ResultScene : MonoBehaviour
     private void Start()
     {
         Initialize();
-        Fade.Instance.StartFadeIn().OnComplete(() => AudioManager.Instance.PlayBGM(BGMType.Result));
+        Fade.Instance.StartFadeIn().OnComplete(() => AudioManager.Instance.PlaySE(SEType.ResultView));
     }
 
     private void Initialize()
     {
-        _toTitleButton.onClick.AddListener(() => SceneLoader.FadeLoad(SceneName.Title));
-        _restartButton.onClick.AddListener(() => SceneLoader.FadeLoad(SceneName.InGame));
+        _toTitleButton.onClick.AddListener(() =>
+        {
+            AudioManager.Instance.PlaySE(SEType.Click);
+            SceneLoader.FadeLoad(SceneName.Title);
+        });
+        _restartButton.onClick.AddListener(() =>
+        {
+            AudioManager.Instance.PlaySE(SEType.Click);
+            SceneLoader.FadeLoad(SceneName.InGame);
+        });
 
         var resultTime = ScoreManager.Instance.ResultScore;
 
