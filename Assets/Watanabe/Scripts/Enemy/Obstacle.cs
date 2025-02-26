@@ -83,7 +83,7 @@ public class Obstacle : MonoBehaviour
 
         while (position.y < maxHeight)
         {
-            //position.y = Mathf.Min(position.y + Time.deltaTime * _moveSpeed, maxHeight);
+            position.y = Mathf.Min(position.y + Time.deltaTime * _moveSpeed, maxHeight);
 
             //position.y += Time.deltaTime * _moveSpeed;
 
