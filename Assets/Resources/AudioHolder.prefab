@@ -46,11 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bgmClips:
   - _bgmType: 1
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 58903548c45124f4ebaf20b050a8da0a, type: 3}
   - _bgmType: 2
-    _clip: {fileID: 0}
-  - _bgmType: 3
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: ac2e80efb23480945aac9b77d37440cb, type: 3}
   _seClips:
   - _seType: 1
     _clip: {fileID: 8300000, guid: a4261f9d8460b6d46928fa5e9a7623cb, type: 3}

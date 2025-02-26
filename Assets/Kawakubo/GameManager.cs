@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "GameScene")
         {
-            AudioManager.Instance.PlayBGM(BGMType.InGame);
+            //AudioManager.Instance.PlayBGM(BGMType.InGame);
             Timer = 0;
             Distance = 0;
 
