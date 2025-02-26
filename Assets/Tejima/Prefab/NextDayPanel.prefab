@@ -91,13 +91,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6494699862120491606}
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 4ca237ee3d20eda42967d0d176ea738d, type: 3}
+  - {fileID: 21300000, guid: 1870f77fff99c7b42b99abea5fc3dc5a, type: 3}
+  - {fileID: 21300000, guid: 40dbc4a30ae260d4d84ecf1d5a926d17, type: 3}
+  - {fileID: 21300000, guid: c62ed3d9499da1942aae1ae2fde564a7, type: 3}
+  - {fileID: 21300000, guid: 929933ec6a7f7a34aa0315029132c1e2, type: 3}
+  - {fileID: 21300000, guid: 435e08d91360fc64393ed0ff6061f8bc, type: 3}
+  - {fileID: 21300000, guid: 77e1159c41965d945a799577fc1615af, type: 3}
 --- !u!95 &6494699862120491606
 Animator:
   serializedVersion: 5
