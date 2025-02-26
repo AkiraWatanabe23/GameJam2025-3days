@@ -11,8 +11,9 @@ public class ObstacleController : MonoBehaviour
 
     private void Update()
     {
-        if (_playerPos.z < transform.position.z)
+        if (_playerPos.z > transform.position.z)
         {
+            Debug.Log($"{_playerPos} / {transform.position}");
             Destroy(gameObject);
         }
     }
