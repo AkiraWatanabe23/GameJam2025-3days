@@ -798,46 +798,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Generator
       objectReference: {fileID: 0}
-    - target: {fileID: 7712037713718335667, guid: d445b2b4ba42ffe48844bea31f248d1f, type: 3}
-      propertyPath: _offset
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 7712037713718335667, guid: d445b2b4ba42ffe48844bea31f248d1f, type: 3}
-      propertyPath: _mapMoveSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7712037713718335667, guid: d445b2b4ba42ffe48844bea31f248d1f, type: 3}
-      propertyPath: _generatePos.z
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7712037713718335667, guid: d445b2b4ba42ffe48844bea31f248d1f, type: 3}
-      propertyPath: _maps.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7712037713718335667, guid: d445b2b4ba42ffe48844bea31f248d1f, type: 3}
-      propertyPath: _maps.Array.data[0]
-      value: 
-      objectReference: {fileID: 939791677846921006, guid: 008a24971e132454caa2508d2b4cccee, type: 3}
-    - target: {fileID: 7712037713718335667, guid: d445b2b4ba42ffe48844bea31f248d1f, type: 3}
-      propertyPath: _maps.Array.data[1]
-      value: 
-      objectReference: {fileID: 2572222987679826151, guid: 0ca00d832be2aaf4c9bbda60e3aafb07, type: 3}
-    - target: {fileID: 7712037713718335667, guid: d445b2b4ba42ffe48844bea31f248d1f, type: 3}
-      propertyPath: _maps.Array.data[2]
-      value: 
-      objectReference: {fileID: 6390456019190491290, guid: 8b1242b99edfe9142a16dba8504a4a51, type: 3}
-    - target: {fileID: 7712037713718335667, guid: d445b2b4ba42ffe48844bea31f248d1f, type: 3}
-      propertyPath: _maps.Array.data[3]
-      value: 
-      objectReference: {fileID: 3022096652669787219, guid: 9ab98f92918418245967a8dc5c586a75, type: 3}
-    - target: {fileID: 7712037713718335667, guid: d445b2b4ba42ffe48844bea31f248d1f, type: 3}
-      propertyPath: _maps.Array.data[4]
-      value: 
-      objectReference: {fileID: 3004359283087193661, guid: b4f95a45ec421ea46a23a61dfe5fda93, type: 3}
-    - target: {fileID: 7712037713718335667, guid: d445b2b4ba42ffe48844bea31f248d1f, type: 3}
-      propertyPath: _maps.Array.data[5]
-      value: 
-      objectReference: {fileID: 8266838193080771973, guid: e5185da60d0d5454e8f7264ff49ad2d0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1118,7 +1078,7 @@ MonoBehaviour:
   - 0
   - 5
   _index: 1
-  _jumpForce: 5
+  _jumpForce: 10
   _isMove: 1
   _isGround: 1
 --- !u!54 &996563472

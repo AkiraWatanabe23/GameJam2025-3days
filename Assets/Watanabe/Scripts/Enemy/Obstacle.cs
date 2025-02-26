@@ -76,13 +76,21 @@ public class Obstacle : MonoBehaviour
 
     private IEnumerator Approaching()
     {
-        _currentIndex++;
+        _currentIndex = Mathf.Clamp(_currentIndex++, 0, _approachingRanges.Length - 1);
+        //_currentIndex++;
         var position = transform.position;
-        while (position.y < _startPos.y + _approachingRanges[_currentIndex])
-        {
-            position.y += Time.deltaTime * _moveSpeed;
+        float maxHeight = _startPos.y + _approachingRanges[_currentIndex];
 
-            if (position.y >= _startPos.y + _approachingRanges[_currentIndex]) { position.y = _startPos.y + _approachingRanges[_currentIndex]; }
+        while (position.y < maxHeight)
+        {
+            //position.y = Mathf.Min(position.y + Time.deltaTime * _moveSpeed, maxHeight);
+
+            //position.y += Time.deltaTime * _moveSpeed;
+
+            //if (position.y >= maxHeight)
+            //{
+            //    position.y = maxHeight;
+            //}
 
             transform.position = position;
             _lowPos = position;
@@ -90,7 +98,8 @@ public class Obstacle : MonoBehaviour
         }
 
         IsApproaching = false;
-        if (_currentIndex + 1 != _approachingRanges.Length) { StartCoroutine(MoveVertical()); }
+
+        if (_currentIndex + 1 /*!=*/< _approachingRanges.Length) { StartCoroutine(MoveVertical()); }
         else
         {
             //todo : ゲームオーバー演出
