@@ -100,10 +100,7 @@ public class Obstacle : MonoBehaviour
         IsApproaching = false;
 
         if (_currentIndex + 1 /*!=*/< _approachingRanges.Length) { StartCoroutine(MoveVertical()); }
-        else
-        {
-            //todo : ゲームオーバー演出
-        }
+        else { SceneLoader.FadeLoad(SceneName.Result); }
 
         yield return null;
     }
