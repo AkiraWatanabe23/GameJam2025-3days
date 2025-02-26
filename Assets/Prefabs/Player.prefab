@@ -133,7 +133,7 @@ MonoBehaviour:
   - 0
   - 5
   _index: 1
-  _jumpForce: 8
+  _jumpForce: 10
   _isMove: 1
   _isGround: 1
 --- !u!65 &2856033359909380315
