@@ -3,73 +3,93 @@ using UnityEngine.UI;
 
 enum Week
 {
-    Œ—j“ú,
-    ‰Î—j“ú,
-    …—j“ú,
-    –Ø—j“ú,
-    ‹à—j“ú,
-    “y—j“ú,
-    “ú—j“ú
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday,
 }
 
 public class DowCounter : MonoBehaviour
 {
-    [SerializeField] Animator animator;
-    Week week;
-    [SerializeField]Sprite[] sprites = new Sprite[7];
-    Image image;
-    string readDay;
-    bool isStop = false;
-    int spriteNum = 0;
-    float time = 0.0f;
-    float changeTime = 0.0f;
-    void Start()
+    [SerializeField]
+    private Animator _animator = default;
+    [SerializeField]
+    private Sprite[] _sprites = new Sprite[7];
+
+    [Header("Debug")]
+    [SerializeField]
+    private float _checkValue = 48f;
+
+    private Week _week = Week.Monday;
+    private Image _image = default;
+    private string _readDay = "";
+    private bool _isStop = false;
+    private int _spriteNum = -1;
+    private float _time = 0.0f;
+    private float _changeTime = 0.0f;
+
+    protected int Index
     {
-        image = GetComponent<Image>();
-        week = Week.Œ—j“ú;
-        readDay = $"{week}";
+        get => _spriteNum;
+        private set
+        {
+            _spriteNum = value;
+#if UNITY_EDITOR
+            Debug.Log($"{_week}“Ë“üI");
+#endif
+            _image.sprite = _sprites[value];
+        }
+    }
+
+    private void Start()
+    {
+        _image = GetComponent<Image>();
+        _week = Week.Monday;
+        _readDay = $"{_week}";
+
+        Index++;
     }
 
     private void Update()
     {
-        Debug.Log ($"{week}“Ë“üI:{spriteNum}");
-        sprites.GetValue(spriteNum);
-        image.sprite = sprites[spriteNum];
-        if (isStop){ changeTime += Time.deltaTime; }
-        else { time += Time.deltaTime; }
+        //_sprites.GetValue(_spriteNum);
+        //_image.sprite = _sprites[_spriteNum];
+        if (_isStop) { _changeTime += Time.deltaTime; }
+        else { _time += Time.deltaTime; }
 
-        if (time >= 48)
+        if (_time >= _checkValue)
         {
             NextDay();
-            time = 0;
+            _time = 0;
         }
 
-        if (changeTime >= 1)
+        if (_changeTime >= 1)
         {
-            animator.SetBool("Change", false);
-            isStop = false;
-            changeTime = 0;
+            _animator.SetBool("Change", false);
+            _isStop = false;
+            _changeTime = 0;
         }
-    }
-    public void NextDay()
-    {
-        if (week == Week.“ú—j“ú) 
-        {
-            week = Week.Œ—j“ú;
-            spriteNum = 0;
-        }
-        else 
-        {
-            week++;
-            spriteNum++;
-        }
-        animator.SetBool("Change", true);
-        isStop = true;
-        readDay = $"{week}";
     }
 
-    public string Result()
+    private void NextDay()
     {
-        return readDay;
+        if (_week == Week.Sunday)
+        {
+            _week = Week.Monday;
+            Index = 0;
+        }
+        else
+        {
+            _week++;
+            Index++;
+        }
+        _animator.SetBool("Change", true);
+        _isStop = true;
+        _readDay = $"{_week}";
     }
+
+    public string Result() => _readDay;
 }
