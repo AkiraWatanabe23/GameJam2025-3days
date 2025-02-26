@@ -8,16 +8,17 @@ public class Obstacle : MonoBehaviour
     [SerializeField]
     private float _moveSpeed = 1f;
     [Tooltip("移動幅")]
-    [Range(0.1f, 1f)]
+    [Range(10f, 100f)]
     [SerializeField]
     private float _moveRange = 0.1f;
 
+    [Tooltip("プレイヤー被ダメージ時にプレイヤーに迫る距離(変化量)")]
     [SerializeField]
     private float[] _approachingRanges = default;
 
     private Vector3 _startPos = Vector3.zero;
+    /// <summary> 上下移動するときの下位置 </summary>
     private Vector3 _lowPos = Vector3.zero;
-    private Rigidbody2D _rb2d = default;
 
     private bool _isApproaching = false;
     private int _currentIndex = -1;
@@ -42,12 +43,9 @@ public class Obstacle : MonoBehaviour
     {
         _startPos = transform.position;
         _lowPos = transform.position;
-
-        if (!TryGetComponent(out _rb2d)) { _rb2d = gameObject.AddComponent<Rigidbody2D>(); }
-
-        _rb2d.gravityScale = 0f;
     }
 
+    /// <summary> 上下に揺れる動き </summary>
     private IEnumerator MoveVertical()
     {
         var position = transform.position;
@@ -79,6 +77,7 @@ public class Obstacle : MonoBehaviour
         }
     }
 
+    /// <summary> プレイヤーに迫る </summary>
     private IEnumerator Approaching()
     {
         _currentIndex++;
@@ -90,13 +89,18 @@ public class Obstacle : MonoBehaviour
             if (position.y >= _startPos.y + _approachingRanges[_currentIndex]) { position.y = _startPos.y + _approachingRanges[_currentIndex]; }
 
             transform.position = position;
+            _lowPos = position;
             yield return null;
         }
 
         IsApproaching = false;
         if (_currentIndex + 1 != _approachingRanges.Length) { StartCoroutine(MoveVertical()); }
+        else
+        {
+            //todo : ゲームオーバー演出
+        }
 
-        yield return null;
+            yield return null;
     }
 
     /// <summary> プレイヤーが障害物に衝突したときに呼び出される </summary>
