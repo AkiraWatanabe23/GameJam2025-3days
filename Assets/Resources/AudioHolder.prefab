@@ -53,16 +53,16 @@ MonoBehaviour:
     _clip: {fileID: 0}
   _seClips:
   - _seType: 1
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: a4261f9d8460b6d46928fa5e9a7623cb, type: 3}
   - _seType: 2
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: e53e839d8b3a59b4c82ae32834cb5be9, type: 3}
   - _seType: 3
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 0c3a4750b074b0a4488268f4b3eae43a, type: 3}
   - _seType: 4
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: f48d7b415cd6b6c41bee778bef4631dc, type: 3}
   - _seType: 5
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 152ce70e49174704387bfcf25d09dbdc, type: 3}
   - _seType: 6
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 8e23645062ae82645b4e1a61e30206d0, type: 3}
   - _seType: 7
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 253f108c84be15a45a3aa7e49fdfa616, type: 3}
