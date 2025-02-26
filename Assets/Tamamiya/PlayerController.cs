@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             Debug.Log("HIT");
+            AudioManager.Instance.PlaySE(SEType.Clash);
             if(_hp > 0)
             {
                 _hp--;
