@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
                 isMove = false;
             }
             Destroy(collision.gameObject);
+            GameManager.Instance.Monday.ObstacleApproaching();
         }
     }
 

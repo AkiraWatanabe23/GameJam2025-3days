@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
@@ -9,6 +7,8 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     public float ResultScore => _resultScore;
 
     protected override bool DontDestroyOnLoad => true;
+
+    public void ResetScore() => _resultScore = 0f;
 
     public void SetScore(float score)
     {

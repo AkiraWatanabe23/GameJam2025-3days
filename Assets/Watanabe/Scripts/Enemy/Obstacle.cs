@@ -8,7 +8,7 @@ public class Obstacle : MonoBehaviour
     [SerializeField]
     private float _moveSpeed = 1f;
     [Tooltip("移動幅")]
-    [Range(0.1f, 1f)]
+    [Range(10f, 100f)]
     [SerializeField]
     private float _moveRange = 0.1f;
 
@@ -17,7 +17,6 @@ public class Obstacle : MonoBehaviour
 
     private Vector3 _startPos = Vector3.zero;
     private Vector3 _lowPos = Vector3.zero;
-    private Rigidbody2D _rb2d = default;
 
     private bool _isApproaching = false;
     private int _currentIndex = -1;
@@ -42,10 +41,6 @@ public class Obstacle : MonoBehaviour
     {
         _startPos = transform.position;
         _lowPos = transform.position;
-
-        if (!TryGetComponent(out _rb2d)) { _rb2d = gameObject.AddComponent<Rigidbody2D>(); }
-
-        _rb2d.gravityScale = 0f;
     }
 
     private IEnumerator MoveVertical()
@@ -90,11 +85,16 @@ public class Obstacle : MonoBehaviour
             if (position.y >= _startPos.y + _approachingRanges[_currentIndex]) { position.y = _startPos.y + _approachingRanges[_currentIndex]; }
 
             transform.position = position;
+            _lowPos = position;
             yield return null;
         }
 
         IsApproaching = false;
         if (_currentIndex + 1 != _approachingRanges.Length) { StartCoroutine(MoveVertical()); }
+        else
+        {
+            //todo : ゲームオーバー演出
+        }
 
         yield return null;
     }
