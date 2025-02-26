@@ -1,8 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MapMove : MonoBehaviour
 {
+    /// <summary>このオブジェクトの移動方向</summary>
     public Vector3 MoveDirection { get => _moveDirection; set => _moveDirection = value.normalized; }
+    /// <summary>このオブジェクトの移動速度</summary>
     public float MoveSpeed { get => _moveSpeed; set => _moveSpeed = value; }
     public bool IsMovable
     {
@@ -30,5 +32,12 @@ public class MapMove : MonoBehaviour
     private void Update()
     {
         if (_isMovable) _rigidbody.velocity = _moveDirection * _moveSpeed;
+    }
+
+    public void UpdateMapData(Vector3 direction, float speed, bool movable)
+    {
+        _moveDirection = direction;
+        _moveSpeed = speed;
+        _isMovable = movable;
     }
 }
