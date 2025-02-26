@@ -11,11 +11,6 @@ public class GameManager : MonoBehaviour
     public static string WeekDay;
     public static GameManager Instance;
 
-    [SerializeField]
-    private Obstacle _monday = default;
-
-    public Obstacle Monday => _monday;
-
     private void Awake()
     {
         Instance = this; 
@@ -62,6 +57,5 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         WeekDay = DowCounter.Result();
-        ScoreManager.Instance.SetScore(Timer);
     }
 }

@@ -40,10 +40,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        //var horizontal = Input.GetAxisRaw("Horizontal");
-        //左入力 → horizontal < 0f
-        //右入力 → horizontal > 0f
-
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             AudioManager.Instance.PlaySE(SEType.HorizontalMove);
@@ -82,7 +78,6 @@ public class PlayerController : MonoBehaviour
                 isMove = false;
             }
             Destroy(collision.gameObject);
-            GameManager.Instance.Monday.ObstacleApproaching();
         }
     }
 
