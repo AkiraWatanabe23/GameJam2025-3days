@@ -42,22 +42,14 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            AudioManager.Instance.PlaySE(SEType.HorizontalMove);
             index = (index - 1 < 0) ? index : index - 1;
         }
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
+            AudioManager.Instance.PlaySE(SEType.HorizontalMove);
             index = (index + 1 > pos.Length - 1) ? index : index + 1;
         }
-
-        if (index > pos.Length)
-        {
-            index = pos.Length - 1;
-        }
-        if (index < 0)
-        {
-            index = 0;
-        }
-
         this.transform.position = new Vector3(pos[index], this.transform.position.y);
     }
 
@@ -68,6 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         if(isGround)
         {
+            AudioManager.Instance.PlaySE(SEType.Jump);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
@@ -84,11 +77,7 @@ public class PlayerController : MonoBehaviour
             {
                 isMove = false;
             }
-        }
-
-        if (collision.gameObject.CompareTag("Monday"))
-        {
-            GameManager.Instance.GameOver();
+            Destroy(collision.gameObject);
         }
     }
 
