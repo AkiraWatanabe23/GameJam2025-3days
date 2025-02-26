@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         isMove = true;
-        this.transform.position = new Vector3(pos[index], this.transform.position.y);
+        this.transform.position = new Vector3(pos[index], this.transform.position.y, transform.position.z);
     }
 
     void Update()
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
             AudioManager.Instance.PlaySE(SEType.HorizontalMove);
             index = (index + 1 > pos.Length - 1) ? index : index + 1;
         }
-        this.transform.position = new Vector3(pos[index], this.transform.position.y);
+        this.transform.position = new Vector3(pos[index], this.transform.position.y, transform.position.z);
     }
 
     /// <summary>

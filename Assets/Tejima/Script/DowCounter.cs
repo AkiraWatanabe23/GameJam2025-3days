@@ -25,7 +25,7 @@ public class DowCounter : MonoBehaviour
     float changeTime = 0.0f;
     void Start()
     {
-        image = GameObject.FindObjectOfType<Image>();
+        image = GetComponent<Image>();
         week = Week.ŒŽ—j“ú;
         readDay = $"{week}";
     }
