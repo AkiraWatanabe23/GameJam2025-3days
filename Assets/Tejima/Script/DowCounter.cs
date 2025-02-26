@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-enum Week
+public enum Week
 {
     Monday,
     Tuesday,
@@ -25,7 +25,6 @@ public class DowCounter : MonoBehaviour
 
     private Week _week = Week.Monday;
     private Image _image = default;
-    private string _readDay = "";
     private bool _isStop = false;
     private int _spriteNum = -1;
     private float _time = 0.0f;
@@ -48,7 +47,6 @@ public class DowCounter : MonoBehaviour
     {
         _image = GetComponent<Image>();
         _week = Week.Monday;
-        _readDay = $"{_week}";
 
         Index++;
     }
@@ -88,8 +86,7 @@ public class DowCounter : MonoBehaviour
         }
         _animator.SetBool("Change", true);
         _isStop = true;
-        _readDay = $"{_week}";
     }
 
-    public string Result() => _readDay;
+    public Week GetResultWeek() => _week;
 }

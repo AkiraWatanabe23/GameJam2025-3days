@@ -2,16 +2,20 @@ using UnityEngine;
 
 public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
 {
-    private float _resultScore = 0f;
-
-    public float ResultScore => _resultScore;
+    public float ResultScore { get; private set; } = 0f;
+    public Week ResultWeek { get; private set; } = Week.Monday;
 
     protected override bool DontDestroyOnLoad => true;
 
-    public void ResetScore() => _resultScore = 0f;
-
-    public void SetScore(float score)
+    public void ResetScore()
     {
-        _resultScore = score;
+        ResultScore = 0f;
+        ResultWeek = Week.Monday;
+    }
+
+    public void SetScore(float score, Week week)
+    {
+        ResultScore = score;
+        ResultWeek = week;
     }
 }

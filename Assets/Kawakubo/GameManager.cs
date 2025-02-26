@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] DowCounter DowCounter;
     private static float Timer = 0;
     private static float Distance = 0;
-    public static string WeekDay;
     public static GameManager Instance;
 
     [SerializeField]
@@ -63,7 +62,6 @@ public class GameManager : MonoBehaviour
     //ゲームオーバー時の処理
     public void GameOver()
     {
-        WeekDay = DowCounter.Result();
-        ScoreManager.Instance.SetScore(Timer);
+        ScoreManager.Instance.SetScore(Timer, DowCounter.GetResultWeek());
     }
 }
