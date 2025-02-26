@@ -14,10 +14,12 @@ public class MapMove : MonoBehaviour
             if (_isMovable != value) _isMovable = value;
         }
     }
+    public int LifeTime { get => _lifeTime; set => _lifeTime = value; }
 
     private Vector3 _moveDirection = new();
     private float _moveSpeed = 0.0f;
     private bool _isMovable = false;
+    private int _lifeTime = 1;
 
     private Rigidbody _rigidbody = null;
 
@@ -27,6 +29,7 @@ public class MapMove : MonoBehaviour
             _rigidbody = gameObject.AddComponent<Rigidbody>();
 
         _rigidbody.useGravity = false;
+        Destroy(gameObject, _lifeTime);
     }
 
     private void Update()
@@ -34,10 +37,11 @@ public class MapMove : MonoBehaviour
         if (_isMovable) _rigidbody.velocity = _moveDirection * _moveSpeed;
     }
 
-    public void UpdateMapData(Vector3 direction, float speed, bool movable)
+    public void UpdateMapData(Vector3 direction, float speed, bool movable, int lifeTime)
     {
         _moveDirection = direction;
         _moveSpeed = speed;
         _isMovable = movable;
+        _lifeTime = lifeTime;
     }
 }

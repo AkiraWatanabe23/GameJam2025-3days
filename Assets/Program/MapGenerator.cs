@@ -18,6 +18,8 @@ public class MapGenerator : MonoBehaviour
     [SerializeField, Tooltip("マップが動く速さ")]
     private float _mapMoveSpeed = 1.0f;
     [SerializeField]
+    private int _mapLifeTime = 10;
+    [SerializeField]
     private Vector3 _generatePos = new();
     [SerializeField]
     private float _offset = 0.0f;
@@ -33,10 +35,10 @@ public class MapGenerator : MonoBehaviour
         InitGenerate();
 
         _nextMap = RandomGenerate(Vector3.down * 100);
-        _nextMap.UpdateMapData(_mapMoveDirection, _mapMoveSpeed, false);
+        _nextMap.UpdateMapData(_mapMoveDirection, _mapMoveSpeed, false, _mapLifeTime);
         _nextMap.gameObject.SetActive(false);
         _lastMap = RandomGenerate(_generatePos);
-        _lastMap.UpdateMapData(_mapMoveDirection, _mapMoveSpeed, true);
+        _lastMap.UpdateMapData(_mapMoveDirection, _mapMoveSpeed, true, _mapLifeTime);
     }
 
     private void InitGenerate()
@@ -46,7 +48,7 @@ public class MapGenerator : MonoBehaviour
         for (int i = _initialGenerateCount; 0 < i; i--)
         {
             var map = Instantiate(_initialMap, _generatePos, _initialMap.transform.rotation).AddComponent<MapMove>();
-            map.UpdateMapData(_mapMoveDirection, _mapMoveSpeed, true);
+            map.UpdateMapData(_mapMoveDirection, _mapMoveSpeed, true, _mapLifeTime);
             map.transform.position -= generateOffset * i;
         }
     }
@@ -65,7 +67,7 @@ public class MapGenerator : MonoBehaviour
             _lastMap = _nextMap;
 
             _nextMap = RandomGenerate(Vector3.down * 100);
-            _nextMap.UpdateMapData(_mapMoveDirection, _mapMoveSpeed, false);
+            _nextMap.UpdateMapData(_mapMoveDirection, _mapMoveSpeed, false, _mapLifeTime);
             _nextMap.gameObject.SetActive(false);
         }
     }
