@@ -19,9 +19,6 @@ public class Obstacle : MonoBehaviour
     private Vector3 _lowPos = Vector3.zero;
 
     private bool _isApproaching = false;
-
-    [Header("Debug")]
-    [SerializeField]
     private int _currentIndex = -1;
 
     protected bool IsApproaching

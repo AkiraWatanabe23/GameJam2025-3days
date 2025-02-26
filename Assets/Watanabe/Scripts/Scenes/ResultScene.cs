@@ -35,6 +35,7 @@ public class ResultScene : MonoBehaviour
     private void Start()
     {
         Initialize();
+        AudioManager.Instance.StopBGM();
         Fade.Instance.StartFadeIn().OnComplete(() => AudioManager.Instance.PlaySE(SEType.ResultView));
     }
 
