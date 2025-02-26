@@ -11,10 +11,12 @@ public class ObstacleController : MonoBehaviour
 
     private void Update()
     {
-        if (_playerPos.z > transform.position.z)
+        if (_playerPos.z > transform.position.z + 1)
         {
-            Debug.Log($"{_playerPos} / {transform.position}");
-            Destroy(gameObject);
+            if (!TryGetComponent(out Rigidbody rb))
+                rb = gameObject.AddComponent<Rigidbody>();
+            rb.AddForce(Vector3.down, ForceMode.Impulse);
+            Destroy(gameObject, 1.0f);
         }
     }
 }

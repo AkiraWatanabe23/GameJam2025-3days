@@ -47,16 +47,16 @@ MonoBehaviour:
   _initialGenerateCount: 4
   _initialMap: {fileID: 3557021810799288229, guid: c1de6da9218079548809bd93864be38d, type: 3}
   _maps:
-  - {fileID: 1316020638398777488, guid: 7205bd658be1bf74dbf72499590c7daa, type: 3}
-  - {fileID: 1855207577036571746, guid: 55c99948060bc294fac365f374723975, type: 3}
   - {fileID: 939791677846921006, guid: 008a24971e132454caa2508d2b4cccee, type: 3}
   - {fileID: 2572222987679826151, guid: 0ca00d832be2aaf4c9bbda60e3aafb07, type: 3}
   - {fileID: 6390456019190491290, guid: 8b1242b99edfe9142a16dba8504a4a51, type: 3}
   - {fileID: 3022096652669787219, guid: 9ab98f92918418245967a8dc5c586a75, type: 3}
   - {fileID: 3004359283087193661, guid: b4f95a45ec421ea46a23a61dfe5fda93, type: 3}
   - {fileID: 8266838193080771973, guid: e5185da60d0d5454e8f7264ff49ad2d0, type: 3}
+  - {fileID: 1316020638398777488, guid: 7205bd658be1bf74dbf72499590c7daa, type: 3}
+  - {fileID: 1855207577036571746, guid: 55c99948060bc294fac365f374723975, type: 3}
   _mapMoveDirection: {x: 0, y: 0, z: -1}
-  _mapMoveSpeed: 10
+  _mapMoveSpeed: 20
   _mapLifeTime: 10
-  _generatePos: {x: 0, y: 0, z: 0}
-  _offset: 0
+  _generatePos: {x: 0, y: 0, z: 100}
+  _offset: 28

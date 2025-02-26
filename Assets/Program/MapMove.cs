@@ -29,6 +29,7 @@ public class MapMove : MonoBehaviour
             _rigidbody = gameObject.AddComponent<Rigidbody>();
 
         _rigidbody.useGravity = false;
+        _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         Destroy(gameObject, _lifeTime);
     }
 

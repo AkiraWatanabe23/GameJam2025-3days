@@ -1,100 +1,97 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] public int hp = 3;
-    [SerializeField] private float[] pos = new float[3] { -5, 0, 5 }; //移動できる場所
-    [SerializeField] private int index = 1;
-    [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private bool isMove = true;
-    [SerializeField] private bool isGround = true;
-    Rigidbody rb;
+    [SerializeField] public int _hp = 3;
+    [SerializeField] private float[] _pos = new float[3] { -5, 0, 5 }; //移動できる場所
+    [SerializeField] private int _index = 1;
+    [SerializeField] private float _jumpForce = 5f;
+    [SerializeField] private bool _isMove = true;
+    [SerializeField] private bool _isGround = true;
+
+    private Rigidbody _rb;
+
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        isMove = true;
-        this.transform.position = new Vector3(pos[index], this.transform.position.y, transform.position.z);
+        _rb = GetComponent<Rigidbody>();
+        _isMove = true;
+        transform.position = new Vector3(_pos[_index], transform.position.y, transform.position.z);
     }
 
     void Update()
     {
-        if(hp <= 0)
+        if(_hp <= 0)
         {
             GameManager.Instance.GameOver();
         }
-        if (isMove)
+        if (_isMove)
         {
             Move();
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
             }
         }
     }
 
-    /// <summary>
-    /// プレイヤーの移動
-    /// </summary>
+    /// <summary>プレイヤーの移動</summary>
     private void Move()
     {
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             AudioManager.Instance.PlaySE(SEType.HorizontalMove);
-            index = (index - 1 < 0) ? index : index - 1;
+            _index = (_index - 1 < 0) ? _index : _index - 1;
         }
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             AudioManager.Instance.PlaySE(SEType.HorizontalMove);
-            index = (index + 1 > pos.Length - 1) ? index : index + 1;
+            _index = (_index + 1 > _pos.Length - 1) ? _index : _index + 1;
         }
-        this.transform.position = new Vector3(pos[index], this.transform.position.y, transform.position.z);
+        transform.position = new Vector3(_pos[_index], transform.position.y, transform.position.z);
     }
 
-    /// <summary>
-    /// プレイヤーのジャンプ
-    /// </summary>
+    /// <summary>プレイヤーのジャンプ</summary>
     public void Jump()
     {
-        if(isGround)
+        if(_isGround)
         {
             AudioManager.Instance.PlaySE(SEType.Jump);
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+        if (other.CompareTag("Obstacle"))
         {
-            if(hp > 0)
+            Debug.Log("HIT");
+            if(_hp > 0)
             {
-                hp--;
+                _hp--;
             }
-            if(hp == 0)
+            if(_hp == 0)
             {
-                isMove = false;
+                _isMove = false;
             }
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
             GameManager.Instance.Monday.ObstacleApproaching();
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionStay(Collision other)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground"))
         {
-            isGround = true;
+            _isGround = true;
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionExit(Collision other)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground"))
         {
-            isGround = false;
+            _isGround = false;
         }
     }
 }
