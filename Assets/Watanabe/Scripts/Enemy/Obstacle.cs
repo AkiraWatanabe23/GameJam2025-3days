@@ -76,7 +76,7 @@ public class Obstacle : MonoBehaviour
 
     private IEnumerator Approaching()
     {
-        _currentIndex = Mathf.Clamp(_currentIndex++, 0, _approachingRanges.Length - 1);
+        _currentIndex = Mathf.Clamp(_currentIndex + 1, 0, _approachingRanges.Length);
         //_currentIndex++;
         var position = transform.position;
         float maxHeight = _startPos.y + _approachingRanges[_currentIndex];
@@ -99,8 +99,8 @@ public class Obstacle : MonoBehaviour
 
         IsApproaching = false;
 
-        if (_currentIndex + 1 /*!=*/< _approachingRanges.Length) { StartCoroutine(MoveVertical()); }
-        else { SceneLoader.FadeLoad(SceneName.Result); }
+        if (_currentIndex + 1 != _approachingRanges.Length) { StartCoroutine(MoveVertical()); }
+        else { SceneLoader.FadeLoad(SceneName.Result); Debug.Log("Now Loading"); }
 
         yield return null;
     }
