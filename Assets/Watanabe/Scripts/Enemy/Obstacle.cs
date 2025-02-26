@@ -19,6 +19,9 @@ public class Obstacle : MonoBehaviour
     private Vector3 _lowPos = Vector3.zero;
 
     private bool _isApproaching = false;
+
+    [Header("Debug")]
+    [SerializeField]
     private int _currentIndex = -1;
 
     protected bool IsApproaching
@@ -76,7 +79,7 @@ public class Obstacle : MonoBehaviour
 
     private IEnumerator Approaching()
     {
-        _currentIndex = Mathf.Clamp(_currentIndex + 1, 0, _approachingRanges.Length);
+        _currentIndex = Mathf.Clamp(_currentIndex + 1, 0, _approachingRanges.Length - 1);
         //_currentIndex++;
         var position = transform.position;
         float maxHeight = _startPos.y + _approachingRanges[_currentIndex];
@@ -100,7 +103,11 @@ public class Obstacle : MonoBehaviour
         IsApproaching = false;
 
         if (_currentIndex + 1 != _approachingRanges.Length) { StartCoroutine(MoveVertical()); }
-        else { SceneLoader.FadeLoad(SceneName.Result); Debug.Log("Now Loading"); }
+        else
+        {
+            AudioManager.Instance.PlaySE(SEType.FadeToGame);
+            SceneLoader.FadeLoad(SceneName.Result);
+        }
 
         yield return null;
     }

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
 {
-    public float ResultScore { get; private set; } = 0f;
-    public Week ResultWeek { get; private set; } = Week.Monday;
+    public static float ResultScore { get; private set; } = 0f;
+    public static Week ResultWeek { get; private set; } = Week.Monday;
 
     protected override bool DontDestroyOnLoad => true;
 
