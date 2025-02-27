@@ -102,7 +102,7 @@ public class Obstacle : MonoBehaviour
         if (_currentIndex + 1 != _approachingRanges.Length) { StartCoroutine(MoveVertical()); }
         else
         {
-            AudioManager.Instance.PlaySE(SEType.FadeToGame);
+            AudioManager.Instance.PlaySE(SEType.FadeToResult);
             SceneLoader.FadeLoad(SceneName.Result);
         }
 
